@@ -26,6 +26,7 @@ hs_err_pid*
 /target/
 target/
 coding-questions/target/
+coding-questions/out/
 
 # others
 .DS_Store
