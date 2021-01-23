@@ -1,0 +1,48 @@
+package arrays_and_strings;
+
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+
+public class HasNoDuplicates {
+    /* using O(n^2)
+
+    public boolean containsDuplicate(int[] nums) {
+        for (int i=0; i<nums.length; i++) {
+            for (int j=i+1; j<nums.length; j++) {
+                if (nums[i] == nums[j])
+                    return true;
+            }
+        }
+        return false;
+    }
+    */
+/* using O(nlogn)
+    public boolean containsDuplicate(int[] nums) {
+        Arrays.sort(nums);
+        for (int i=0; i<nums.length-1; i++) {
+            if (nums[i] == nums[i+1])
+                return true;
+        }
+        return false;
+    }
+*/
+// using O(n)
+    public static boolean containsDuplicate(int[] nums) {
+        Set<Integer> set = new HashSet<Integer>();
+        for (int i=0; i<nums.length; i++) {
+            if (set.contains(nums[i]))
+                return true;
+            set.add(nums[i]);
+        }
+        return false;
+    }
+
+    public static void main(String[] args) {
+        int[] input = {1,2,3,4,1,3};
+//        int[] input = {1,2,3,4};
+
+        System.out.println(HasNoDuplicates.containsDuplicate(input));
+    }
+
+}
